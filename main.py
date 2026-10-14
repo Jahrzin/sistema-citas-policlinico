@@ -204,7 +204,7 @@ def main(): # Inicio el codigo para la busqueda, registrar, ordenar y salida del
         print("5. Eliminar cita")
         print("6. Salir")
 
-        opcion = input("Elige una opcion (1-5): ") # La consola lee la opción que es ingresada por el usuario
+        opcion = input("Elige una opcion (1-6): ") # La consola lee la opción que es ingresada por el usuario
 
         # La consola evalúa la opción seleccionada y ejecuta la función que eligío el usuario
         if opcion == "1": 
@@ -217,12 +217,12 @@ def main(): # Inicio el codigo para la busqueda, registrar, ordenar y salida del
             ordenar(citas)
         elif opcion == "5":
             reiniciar_citas(citas)
-        elif opcion == "5":
+        elif opcion == "6":
             print("Saliendo del programa...")
             break # Se detiene el bucle while, haciendo que finalize el programa
         else:
-            print("Opcion no valida, elige del 1 al 5.")
+            print("Opcion no valida, elige del 1 al 6.")
 
 # Asegura que el programa empiece a ejecutar desde la función principal main()
-if __name__ == "__main__":
+if __name__ == "_main_":
     main()
