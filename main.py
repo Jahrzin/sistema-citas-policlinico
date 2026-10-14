@@ -74,7 +74,7 @@ def registrar(citas):
 
         # 1. Verifica que tenga al menos 2 palabras nombre + apellido
         if (
-            len(nombre.split()) >= 2 # len(nombre.split()) >= 2 exige mínimo 2 palabras (nombre + apellido) 
+            len(nombre.split()) >= 2 # len(nombre.split()) >= 2 exige mínimo 2 palabras (nombre + apellido), cortando las palabras con los espacios en blanco
             and nombre.replace(" ", "").isalpha() # nombre.replace(" ", "").isalpha() asegura que solo haya letras sin números ni símbolos
         ):
             break
@@ -174,6 +174,21 @@ def ordenar(citas):
     print("¡Citas ordenadas por codigo correctamente!")
     mostrar(citas) # Se mostrar la lista ya organizada de forma ascendente
 
+def reiniciar_citas(citas):
+    confirmacion = (
+        input(
+            "¿Está seguro de que desea borra todas las citas? (S/N): "
+        ).strip() .upper() )
+
+    if confirmacion == "S":
+        # Al abrir con "w", Python borra todo el contenido del archivo .txt
+        archivo = open(nombre_del_archivo, "w", encoding="utf-8")
+        archivo.close()
+
+        citas.clear()  # Vaciamos la lista en memoria
+        print("¡Todas las citas han sido eliminadas correctamente!")
+    else:
+        print("Operación cancelada.")
 
 def main(): # Inicio el codigo para la busqueda, registrar, ordenar y salida del codigo
 
@@ -186,7 +201,8 @@ def main(): # Inicio el codigo para la busqueda, registrar, ordenar y salida del
         print("2. Ver todas las citas")
         print("3. Buscar por codigo")
         print("4. Ordenar citas")
-        print("5. Salir")
+        print("5. Eliminar cita")
+        print("6. Salir")
 
         opcion = input("Elige una opcion (1-5): ") # La consola lee la opción que es ingresada por el usuario
 
@@ -199,6 +215,8 @@ def main(): # Inicio el codigo para la busqueda, registrar, ordenar y salida del
             buscar(citas)
         elif opcion == "4":
             ordenar(citas)
+        elif opcion == "5":
+            reiniciar_citas(citas)
         elif opcion == "5":
             print("Saliendo del programa...")
             break # Se detiene el bucle while, haciendo que finalize el programa
