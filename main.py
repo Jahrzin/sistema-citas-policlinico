@@ -224,5 +224,5 @@ def main(): # Inicio el codigo para la busqueda, registrar, ordenar y salida del
             print("Opcion no valida, elige del 1 al 6.")
 
 # Asegura que el programa empiece a ejecutar desde la función principal main()
-if __name__ == "_main_":
+if __name__ == "__main__":
     main()
